@@ -5,16 +5,12 @@ package_name: lstm_model
 data_file: EURUSD_Candlestick_1_h_ASK_31.12.2011-31.01.2023.csv
 
 # Variables.
-pipeline_name: LSTM_pipe
+#target: preciio
+pipeline_saved_name: LSTM_pipe_saved
 
 features:
   - Gmt time # In file
   - Close # In file
-  - fecha # Created
-  - precio_EURUSD # Created
-  - target # Created
-  # this one is only to calculate temporal variable:
-  #- YrSold
 
 # Dates to split the serie: minimun date and train test split date.
 corte_fecha: 201212
