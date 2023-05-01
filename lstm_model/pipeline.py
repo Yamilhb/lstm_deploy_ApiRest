@@ -1,7 +1,7 @@
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import RobustScaler
-from regression_model.processing import pipe_needs
-from regression_model.config.core import config
+from lstm_model.processing import pipe_needs
+from lstm_model.config.core import config
 
 LSTM_pipe = Pipeline([
     # === SCALING ===

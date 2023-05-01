@@ -1,13 +1,14 @@
 from pathlib import Path
-from typing import Dict, List, Optional, Sequence
+from typing import List, Optional#, Dict,  Sequence
 
 from pydantic import BaseModel
 from strictyaml import YAML, load
 
-#import regression_model
+#import lstm_model
 
 # Project Directories
-PACKAGE_ROOT = Path(regression_model.__file__).resolve().parent
+#PACKAGE_ROOT = Path(lstm_model.__file__).resolve().parent
+PACKAGE_ROOT = Path("lstm_model").resolve()
 #PACKAGE_ROOT = Path().resolve().parent
 ROOT = PACKAGE_ROOT.parent
 CONFIG_FILE_PATH = PACKAGE_ROOT / "config.yml"

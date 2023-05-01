@@ -2,17 +2,17 @@ import pandas as pd
 from pathlib import Path
 import joblib
 
-from regression_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
-from regression_model.pipeline import LSTM_pipe
-from regression_model import __version__ as _version
+from lstm_model.config.core import DATASET_DIR, TRAINED_MODEL_DIR, config
+from lstm_model.pipeline import LSTM_pipe
+from lstm_model import __version__ as _version
 
 def entrenando_pipe():
     # Define parameters.
-    ventana = config.ventana
+    ventana = config.model_config.ventana
     #n_features = config.n_features
     #epochs = config.epochs
-    corte_fecha = config.corte_fecha
-    corte_train_test = config.corte_train_test
+    corte_fecha = config.model_config.corte_fecha
+    corte_train_test = config.model_config.corte_train_test
     features = config.model_config.features
     file_name = config.app_config.data_file
 
