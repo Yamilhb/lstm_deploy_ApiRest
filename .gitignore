@@ -1,0 +1,6 @@
+__pycache__/
+
+.tox/
+
+# Borradores y pruebas.
+requirements_auxiliar.txt
