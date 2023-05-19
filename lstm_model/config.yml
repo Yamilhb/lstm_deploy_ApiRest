@@ -22,4 +22,4 @@ ventana: 120 #10 días
 # Number of predictors.
 n_features: 1
 # Epochs of LSTM.
-epochs: 100
+epochs: 10
