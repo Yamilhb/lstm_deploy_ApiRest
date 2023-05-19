@@ -1,3 +1,6 @@
+import tensorflow as tf
+print(tf.config.list_physical_devices('GPU'))
+
 from keras.models import Sequential
 from keras.layers import LSTM, Dense
 
@@ -27,8 +30,8 @@ class ModeloLSM():
     self.modelo.add(LSTM(50, activation='tanh', input_shape=(self.ventana, self.n_features)))
     self.modelo.add(Dense(1))
     self.modelo.compile(optimizer='adam', loss='mse')
-    self.modelo.fit(X, y, epochs=self.epochs, use_gpu=True)
+    self.modelo.fit(X, y, epochs=self.epochs)
     return self
   def transform(self, X):
-    return self.modelo.predict(X, use_gpu=True)
+    return self.modelo.predict(X)
 
