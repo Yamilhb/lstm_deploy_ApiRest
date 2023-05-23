@@ -20,7 +20,7 @@ def test_data_structure(sample_input_data):
       # Except when we do not have a preceed value, then we will take the next value.
     sample_input_data['precio_EURUSD'] = sample_input_data['precio_EURUSD'].fillna(method='bfill')
 
-      # Target and TRAIN/TEST.
+      # Select columns.
     sample_input_data = sample_input_data[['fecha','precio_EURUSD']]
     sample_input_data.set_index('fecha',inplace=True)
 
