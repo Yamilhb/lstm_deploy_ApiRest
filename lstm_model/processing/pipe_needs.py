@@ -20,7 +20,7 @@ class ReestructuraLSM():
     return X
 
 class ModeloLSM():
-  '''The shape will go from (nrows, nfeatures) to (x, window_length, nfeatures), needed for the LSTM'''
+  '''Train LSTM, and predict'''
   def __init__(self, ventana,n_features,epochs):
     self.ventana = ventana
     self.n_features = n_features

@@ -20,7 +20,7 @@ def make_prediction(
     data = pd.DataFrame(input_data)
     results = {"predictions": None, "version": _version}
 
-    predictions = _price_pipe.predict(
+    predictions = _price_pipe.transform(
         X=data[config.model_config.features]
         )
     results = {
