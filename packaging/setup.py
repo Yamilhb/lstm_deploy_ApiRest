@@ -14,24 +14,22 @@ AUTHOR = "YamilHB"
 REQUIRES_PYTHON = ">=3.6.0"
 
 
-# The rest you shouldn't have to touch too much :)
+# This part is almost standar.
 # ------------------------------------------------
-# Except, perhaps the License and Trove Classifiers!
-# If you do change the License, remember to change the
-# Trove Classifier for that!
+# If i change the License, then also change Trove Classifiers.
 long_description = DESCRIPTION
 
 # Load the package's VERSION file as a dictionary.
 about = {}
 ROOT_DIR = Path(__file__).resolve().parent
 REQUIREMENTS_DIR = ROOT_DIR / 'requirements'
-PACKAGE_DIR = ROOT_DIR / 'regression_model'
+PACKAGE_DIR = ROOT_DIR / 'lstm_model'
 with open(PACKAGE_DIR / "VERSION") as f:
     _version = f.read().strip()
     about["__version__"] = _version
 
 
-# What packages are required for this module to be executed?
+# Packages that are required for this module.
 def list_reqs(fname="requirements.txt"):
     with open(REQUIREMENTS_DIR / fname) as fd:
         return fd.read().splitlines()
@@ -52,9 +50,9 @@ setup(
     install_requires=list_reqs(),
     extras_require={},
     include_package_data=True,
-    license="BSD-3",
+    license="BSD-3", # Licencia de código abierto para la redistribución y uso del software
     classifiers=[
-        # Trove classifiers
+        # Trove classifiers: etiquetas para clasficar los paquetes en PyPI por ejemplo.
         # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
