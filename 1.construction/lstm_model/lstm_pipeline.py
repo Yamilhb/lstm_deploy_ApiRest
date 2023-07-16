@@ -21,7 +21,7 @@ def entrenando_pipe():
 
     # Basic transformations.
     data1['fecha'] = pd.to_datetime(data1[features[0]],format='%d.%m.%Y %H:%M:%S.%f')
-    data1[f'precio_EURUSD'] = data1[features[1]]
+    data1['precio_EURUSD'] = data1[features[1]]
 
     # Select records from 2013 onwards.
     data1 = data1[(data1['fecha'].dt.year*100+data1['fecha'].dt.month)>corte_fecha]

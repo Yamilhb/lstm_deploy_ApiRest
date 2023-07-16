@@ -1,6 +1,6 @@
-import typing as t
+#import typing as t
 
-import numpy as np
+#import numpy as np
 import pandas as pd
 
 from lstm_model import __version__ as _version
@@ -21,7 +21,7 @@ def make_prediction(
           # Basic transformations.
     features = config.model_config.features
     data['fecha'] = pd.to_datetime(data[features[0]],format='%d.%m.%Y %H:%M:%S.%f')
-    data[f'precio_EURUSD'] = data[features[1]]
+    data['precio_EURUSD'] = data[features[1]]
 
       # NULOS
       # For the null values we will take the preceed value.
