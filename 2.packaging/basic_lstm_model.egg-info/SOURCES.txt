@@ -16,6 +16,7 @@ lstm_model/pipeline.py
 lstm_model/predict.py
 lstm_model/config/__init__.py
 lstm_model/config/core.py
+lstm_model/datasets/EURUSD_Candlestick_1_h_ASK_31.12.2011-31.01.2023.csv
 lstm_model/datasets/__init__.py
 lstm_model/processing/__init__.py
 lstm_model/processing/data_manager.py
