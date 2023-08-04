@@ -1,9 +1,10 @@
 from typing import Generator
 
 import pandas as pd
+from pathlib import Path
 import pytest
 from fastapi.testclient import TestClient
-from lstm_model.config.core import config
+from lstm_model.config.core import config, DATASET_DIR
 from lstm_model.processing.pipe_needs import ReestructuraLSM
 
 from app.main import app
@@ -11,6 +12,8 @@ from app.main import app
 
 @pytest.fixture(scope="module")
 def test_data() -> pd.DataFrame:
+    
+    return pd.read_csv(Path(f"{DATASET_DIR}/{config.app_config.data_file}"), usecols = config.model_config.features)
 
     transformer = ReestructuraLSM(config.model_config.ventana)
 

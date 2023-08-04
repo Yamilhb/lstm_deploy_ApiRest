@@ -6,8 +6,8 @@ import pandas as pd
 from fastapi import APIRouter, HTTPException
 from fastapi.encoders import jsonable_encoder
 from loguru import logger
-from regression_model import __version__ as model_version
-from regression_model.predict import make_prediction
+from lstm_model import __version__ as model_version
+from lstm_model.predict import make_prediction
 
 from app import __version__, schemas
 from app.config import settings
@@ -26,9 +26,10 @@ def health() -> dict:
 
     return health.dict()
 
-
 @api_router.post("/predict", response_model=schemas.PredictionResults, status_code=200)
-async def predict(input_data: schemas.MultipleHouseDataInputs) -> Any:
+async def predict(input_data) -> Any:
+# De momento no uso 'schemas.MultipleHouseDataInputs'
+#async def predict(input_data: schemas.MultipleHouseDataInputs) -> Any:
     """
     Make predictions qith your packaged model.
     """
