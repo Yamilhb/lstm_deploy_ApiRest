@@ -4,3 +4,6 @@ __pycache__/
 
 # Borradores y pruebas.
 requirements_auxiliar.txt
+
+# Directorio de pruebas del modelo.
+2.1.package_apply/
