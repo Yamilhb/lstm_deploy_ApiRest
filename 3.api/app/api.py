@@ -27,25 +27,32 @@ def health() -> dict:
     return health.dict()
 
 @api_router.post("/predict", response_model=schemas.PredictionResults, status_code=200)
-async def predict(input_data) -> Any:
-# De momento no uso 'schemas.MultipleHouseDataInputs'
-#async def predict(input_data: schemas.MultipleHouseDataInputs) -> Any:
+async def predict(input_data: schemas.PredictionInputs) -> Any:
+#    logger.info(f"\n\n\nPRRRRRRRUEBASSS\n\n\n")
     """
-    Make predictions qith your packaged model.
+    Make predictions qith your packaged model.\n
+    CUIDADO: Ahora input_data no es diccionario, es de tipo schemas.PredictionInputs ->
+    -> Sería un error hacer input_data["inputs"]
     """
 
     input_df = pd.DataFrame(jsonable_encoder(input_data.inputs))
 
     # Advanced: You can improve performance of your API by rewriting the
     # `make prediction` function to be async and using await here.
-    logger.info(f"Making prediction on inputs: {input_data.inputs}")
-    results = make_prediction(input_data=input_df.replace({np.nan: None}))
+    logger.info(f"Making prediction on inputs: {input_data.inputs[:3]}")
 
-# I have to write the errors to make a more robust product.
+    aux = input_df.copy()
+    
+    aux.columns = [x.replace('_',' ') for x in aux.columns]
+    
+    results = make_prediction(input_data=aux.replace({np.nan: None}))
+
+# I'll have to write the errors to make a more robust product.
 #    if results["errors"] is not None:
 #        logger.warning(f"Prediction validation error: {results.get('errors')}")
 #        raise HTTPException(status_code=400, detail=json.loads(results["errors"]))
 
-    logger.info(f"Prediction results: {results.get('predictions')}")
-
+    logger.info(f"Prediction results: {results.get('predictions')[:3]}")
+    
+    
     return results
